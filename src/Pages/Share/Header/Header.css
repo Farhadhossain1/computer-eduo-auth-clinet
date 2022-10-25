@@ -1,0 +1,25 @@
+.website-name {
+  color: rgb(168, 241, 241);
+  font-size: 35px;
+  font-weight: bolder;
+}
+.website-name:hover {
+  color: rgb(168, 241, 241);
+}
+
+.navbar-link a {
+  color: white;
+  text-decoration: none;
+  margin-left: 50px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-link a:hover {
+  color: gray;
+}
+.logo-img {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
