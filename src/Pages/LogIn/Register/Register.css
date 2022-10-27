@@ -1,6 +1,6 @@
 .form-container {
   width: 50%;
-  margin-left: 25%;
+  margin: 50px auto;
   margin-top: 50px;
   text-align: start;
   border: 2px solid rgb(245, 243, 243);

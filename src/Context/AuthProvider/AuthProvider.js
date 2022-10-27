@@ -1,5 +1,5 @@
 
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../../firebase/firebase.config';
 
@@ -12,9 +12,14 @@ const AuthProvider = ({children}) => {
 
     const [user,setUser] = useState(null);
 
+    const githubProvider = new GithubAuthProvider();
     
     const providerLogin = (provider) =>{
         return signInWithPopup(auth, provider);
+    }
+
+    const githubLogin = () =>{
+        return signInWithPopup(auth, githubProvider)
     }
 
     const cerateUser = (email,password) =>{
@@ -29,6 +34,10 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+    const userProfileUpdate = (profile) =>{
+        return updateProfile(auth.currentUser, profile)
+    }
+
     useEffect( () =>{
        const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
             console.log('thes is inside state change', currentUser)
@@ -39,7 +48,7 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
-    const authInfo = {user,providerLogin,logOut ,cerateUser,signIn }
+    const authInfo = {user,providerLogin,logOut ,cerateUser,signIn, userProfileUpdate, githubLogin  }
 
     return (
         <AuthContext.Provider value= {authInfo}>

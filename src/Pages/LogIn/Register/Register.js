@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
@@ -10,7 +9,7 @@ import './Register.css';
 
 const Register = () => {
 const [error, setError] = useState('');
-  const {cerateUser} = useContext(AuthContext);
+  const {cerateUser, userProfileUpdate} = useContext(AuthContext);
 
   const handleSubmit = event =>{
     event.preventDefault();
@@ -27,12 +26,21 @@ const [error, setError] = useState('');
       console.log(user);
       setError('');
       form.reset();
+      handleProfileUpdate(name, photoURL);
     })
   .catch(error =>{
     console.error(error)
     setError(error.message)
   })
-    
+  }
+
+  const handleProfileUpdate = (name, photoURL) =>{
+
+    const profile ={
+      displayName: name, photoURL : photoURL
+    }
+
+    userProfileUpdate(profile);
   }
   
     return (
@@ -54,12 +62,10 @@ const [error, setError] = useState('');
         <Form.Control name='password' type="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" >
-        <Form.Check className='form-text' type="checkbox" label="Check me out" />
-        <p>Do not have an account ? <Link to='/login'>Create an account.</Link></p>
+        <Form.Check type="checkbox" label="Check me out" />
+        <p>Do not have an account ? <Link to='/login'><span className='form-text' >Create an account.</span></Link></p>
       </Form.Group>
-      <Button className='form-btn' variant="primary" type="submit">
-        Register
-      </Button>
+      <button className='w-100 py-2 bg-primary text-white border-0'>Register</button>
       <Form.Group className="mb-3 text-danger" >
         {error}
       </Form.Group>

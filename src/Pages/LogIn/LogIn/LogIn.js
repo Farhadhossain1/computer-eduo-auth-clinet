@@ -1,7 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
@@ -9,14 +8,11 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import './LogIn.css';
 
 
-
-
-
 const LogIn = () => {
 
   const [error,setError] = useState('');
 
-  const {providerLogin ,signIn} = useContext(AuthContext);
+  const {providerLogin ,signIn, githubLogin} = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +25,15 @@ const LogIn = () => {
       console.log(user);
     })
     .catch(error => console.error(error))
+  }
+
+  const handleGithubLogin = () =>{
+    githubLogin()
+    .then(result =>{
+      const user  =  result.user;
+      console.log(user);
+    })
+    .catch(e=>console.error(e))
   }
 
 
@@ -69,20 +74,19 @@ const LogIn = () => {
           <Form.Check type="checkbox" label="Check me out" />
           <p>Already have an account ? <Link to='/register'>Please Register</Link></p>
         </Form.Group>
-        <Button className='form-btn' variant="primary" type="submit">
-          LogIn
-        </Button>
-
+        <button className='w-100 py-2 bg-primary text-white border-0'>Login</button>
         <Form.Group className="mb-3  text-danger" >
           {error}
         </Form.Group>
         
       </Form>
       <ButtonGroup className='google-icon'  vertical>
-        <Button onClick={handleGoogleSignin} variant="dark"> <FaGoogle></FaGoogle>LogIn with Google</Button>
-        
-        <Button variant="light"><FaGithub></FaGithub>LogIn with Github</Button>
       </ButtonGroup>
+      <div className='btn-auth'>
+      <button onClick={handleGoogleSignin}> <FaGoogle></FaGoogle>LogIn with Google</button>
+      <br />
+      <button onClick={handleGithubLogin}> <FaGithub></FaGithub>LogIn with Github</button>
+      </div>
        </div>
        
     );
