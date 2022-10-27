@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import './CoursesSummaryCard.css';
 
 
@@ -21,7 +22,7 @@ const CoursesSummaryCard = ({courseCard}) => {
         <Card.Text>
                 {
                    details.length > 200 ?
-                   <p>{details.slice(0,250) + '....'}</p> :
+                   <p>{details}</p> :
                    <p>{details}</p>
                 }
         </Card.Text>
@@ -37,7 +38,7 @@ const CoursesSummaryCard = ({courseCard}) => {
                <p>Total Member : {rating.number}</p>
            </div>
         </div>
-        <Button className='btn' variant="primary">Get premium access</Button>
+        <Link to={`/courses/checkout/${_id}`}><Button className='btn' variant="primary">Get premium access</Button></Link>
       </Card.Body>
     </Card>
         </div>

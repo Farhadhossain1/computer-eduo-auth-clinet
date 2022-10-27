@@ -4,6 +4,7 @@ import Main from "../../LayOut/Main/Main";
 import Card from "../../Pages/AllCourses/Card/Card";
 import Courses from "../../Pages/AllCourses/Courses/Courses";
 import CoursesSummaryCard from "../../Pages/AllCourses/CourseSummaryCard/CoursesSummaryCard";
+import Checkout from "../../Pages/Checkout/Checkout";
 import CoursesCategoris from "../../Pages/CoursesCategories/CoursesCategoris";
 import Home from "../../Pages/Home/Home";
 import LogIn from "../../Pages/LogIn/LogIn/LogIn";
@@ -51,6 +52,11 @@ export const routes = createBrowserRouter([
             path: '/coursesNews/:id',
             element: <CoursesSummaryCard></CoursesSummaryCard>,
             loader: ({params}) => fetch(`http://localhost:5000/coursesNews/${params.id}`)
+        },
+        {
+            path: '/courses/checkout/:id',
+            element: <Checkout></Checkout>,
+            loader: ({params})=> fetch(`http://localhost:5000/courses/checkout/${params.id}`)
         }
        
     ]

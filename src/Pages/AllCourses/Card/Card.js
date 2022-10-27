@@ -1,19 +1,18 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import CoursesSummaryCard from '../CourseSummaryCard/CoursesSummaryCard';
+import CourseCard from '../../CourseCard/CourseCard';
+import './Card.css';
 
 const Card = () => {
-    const coursesCards = useLoaderData()
+    const courses = useLoaderData()
     return (
         <div>
-            <h1>It is card Components : {coursesCards.length}</h1>
-                {
-                    coursesCards.map( courseCard => <CoursesSummaryCard 
-                    key = {courseCard._id}
-                    courseCard={courseCard}
-                    >
-                    </CoursesSummaryCard>)
+            <h1>It is card Components : {courses.length}</h1>
+               <div className='card-container'>
+               {
+                    courses.map(course =><CourseCard key={course._id} course={course}></CourseCard>)
                 }
+               </div>
         </div>
     );
 };
