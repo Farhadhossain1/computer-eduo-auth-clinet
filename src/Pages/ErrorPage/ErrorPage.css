@@ -1,0 +1,9 @@
+.error {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  color: red;
+}

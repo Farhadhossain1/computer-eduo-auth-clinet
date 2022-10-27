@@ -6,6 +6,7 @@ import Courses from "../../Pages/AllCourses/Courses/Courses";
 import CoursesSummaryCard from "../../Pages/AllCourses/CourseSummaryCard/CoursesSummaryCard";
 import Checkout from "../../Pages/Checkout/Checkout";
 import CoursesCategoris from "../../Pages/CoursesCategories/CoursesCategoris";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import LogIn from "../../Pages/LogIn/LogIn/LogIn";
 import Register from "../../Pages/LogIn/Register/Register";
@@ -61,6 +62,10 @@ export const routes = createBrowserRouter([
         }
        
     ]
+},
+{
+    path: '*',
+    element: <ErrorPage></ErrorPage>
 }
 
 ])
