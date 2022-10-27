@@ -1,5 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../LayOut/Main/Main";
+import Card from "../../Pages/AllCourses/Card/Card";
+import Courses from "../../Pages/AllCourses/Courses/Courses";
+import CoursesSummaryCard from "../../Pages/AllCourses/CourseSummaryCard/CoursesSummaryCard";
+import CoursesCategoris from "../../Pages/CoursesCategories/CoursesCategoris";
 import Home from "../../Pages/Home/Home";
 import LogIn from "../../Pages/LogIn/LogIn/LogIn";
 import Register from "../../Pages/LogIn/Register/Register";
@@ -14,13 +18,37 @@ export const routes = createBrowserRouter([
             element: <Home></Home>
         },
         {
-            path: '/register',
-            element: <Register></Register>
-        },
-        {
             path: '/login',
             element: <LogIn></LogIn>
+        },
+        {
+            path: '/register',
+            element: <Register></Register>
+        }, 
+        
+    ]
+},
+{
+    path: '/courses',
+    element: <Courses></Courses>,
+    children: [
+        {
+            path:'/courses',
+            element: <Card></Card>,
+            loader: () => fetch('http://localhost:5000/coursesNews')
+        },
+        {
+            path: '/courses/:id',
+            element: <CoursesCategoris></CoursesCategoris>,
+            loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+        },
+        {
+            path: '/coursesNews/:id',
+            element: <CoursesSummaryCard></CoursesSummaryCard>,
+            loader: ({params}) => fetch(`http://localhost:5000/coursesNews/${params.id}`)
         }
+       
     ]
 }
+
 ])

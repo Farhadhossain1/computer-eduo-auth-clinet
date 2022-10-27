@@ -1,33 +1,70 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import './Register.css';
 
+
+
+
 const Register = () => {
+const [error, setError] = useState('');
+  const {cerateUser} = useContext(AuthContext);
+
+  const handleSubmit = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name,email,photoURL,password);
+
+    cerateUser(email,password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      setError('');
+      form.reset();
+    })
+  .catch(error =>{
+    console.error(error)
+    setError(error.message)
+  })
+    
+  }
+  
+  
+
+
     return (
-        <Form className='form-container'>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className='form-text'>Your Name</Form.Label>
-        <Form.Control type="text" placeholder="Your Name" />
+        <Form onSubmit={handleSubmit} className='form-container'>
+      <Form.Group className="mb-3">
+        <Form.Label  className='form-text'>Your Name</Form.Label>
+        <Form.Control name='name' type="text" placeholder="Your Name" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className='form-text'>Your PhotoURL</Form.Label>
-        <Form.Control type="text" placeholder="Your PhotoURL" />
+      <Form.Group className="mb-3" >
+        <Form.Label  className='form-text'>Your PhotoURL</Form.Label>
+        <Form.Control name='photoURL' type="text" placeholder="Your PhotoURL" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className='form-text'>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+      <Form.Group className="mb-3">
+        <Form.Label  className='form-text'>Email address</Form.Label>
+        <Form.Control name='email' type="email" placeholder="Enter email" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className='form-text'>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+      <Form.Group className="mb-3">
+        <Form.Label  className='form-text'>Password</Form.Label>
+        <Form.Control name='password' type="password" placeholder="Password" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      <Form.Group className="mb-3" >
         <Form.Check className='form-text' type="checkbox" label="Check me out" />
       </Form.Group>
       <Button className='form-btn' variant="primary" type="submit">
         Register
       </Button>
+      <Form.Group className="mb-3 text-danger" >
+        {error}
+      </Form.Group>
+      
     </Form>
     );
 };
