@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 
 const CoursesSummaryCard = ({courseCard}) => {
-    const {title, details,_id, total_view,image_url,rating } = courseCard;
+    const {title, details,_id,image_url,rating } = courseCard;
     return (
         <div>
             <Card className='mb-5' >
