@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './sideVarCoursesNam.css';
 
 const SideVarCourseName = () => {
 
@@ -14,12 +15,12 @@ useEffect( () =>{
 
     return (
         <div>
-           <h1>Courses Name: {coursesInfo.length}</h1>
+           <h2>Programming Language</h2>
            {
             coursesInfo.map(course => 
-            <p key={course.id}>
-                <Link to={`/courses/${course.id}`}>
-                {course.name}
+            <p  key={course.id}>
+                <Link className='course-link' to={`/courses/${course.id}`}>
+                <span className='courses-name'>{course.name}</span>
                 </Link>
             </p>)
            }

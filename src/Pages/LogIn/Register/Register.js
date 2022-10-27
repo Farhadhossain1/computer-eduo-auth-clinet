@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import './Register.css';
 
@@ -34,14 +35,11 @@ const [error, setError] = useState('');
     
   }
   
-  
-
-
     return (
         <Form onSubmit={handleSubmit} className='form-container'>
       <Form.Group className="mb-3">
-        <Form.Label  className='form-text'>Your Name</Form.Label>
-        <Form.Control name='name' type="text" placeholder="Your Name" />
+        <Form.Label  className='form-text'>Full Name</Form.Label>
+        <Form.Control name='name' type="text" placeholder="Full Name" />
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Label  className='form-text'>Your PhotoURL</Form.Label>
@@ -57,6 +55,7 @@ const [error, setError] = useState('');
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Check className='form-text' type="checkbox" label="Check me out" />
+        <p>Do not have an account ? <Link to='/login'>Create an account.</Link></p>
       </Form.Group>
       <Button className='form-btn' variant="primary" type="submit">
         Register

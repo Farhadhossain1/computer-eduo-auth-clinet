@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from "react-icons/fa";
+import './CoursesSummaryCard.css';
 
 
 const CoursesSummaryCard = ({courseCard}) => {
@@ -10,11 +11,8 @@ const CoursesSummaryCard = ({courseCard}) => {
         <div>
             <Card className='mb-5' >
                 <Card.Header>
-                    <div>
+                    <div className='card-header'>
                     All courses Information
-                    </div>
-                    <div>
-                        
                     </div>
                     </Card.Header>
       <Card.Body>
@@ -27,7 +25,7 @@ const CoursesSummaryCard = ({courseCard}) => {
                    <p>{details}</p>
                 }
         </Card.Text>
-        <div>
+        <div className='icon-btn'>
            <div>
            <FaStar className='text-warning'></FaStar>
             <FaStar className='text-warning'></FaStar>
@@ -39,7 +37,7 @@ const CoursesSummaryCard = ({courseCard}) => {
                <p>Total Member : {rating.number}</p>
            </div>
         </div>
-        <Button variant="primary">Go somewhere</Button>
+        <Button className='btn' variant="primary">Get premium access</Button>
       </Card.Body>
     </Card>
         </div>

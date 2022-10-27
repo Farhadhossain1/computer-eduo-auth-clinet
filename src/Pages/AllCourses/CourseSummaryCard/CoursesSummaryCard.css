@@ -1,0 +1,15 @@
+.icon-btn {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 35%;
+}
+.card-header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -39,7 +39,7 @@ const Header = () => {
             <Link  to="/">Home</Link>
             <Link  to="/courses">Courses</Link>
             <Link  href="#link">FAQ</Link>
-            <Link  href="#link">Blog</Link>
+            <Link  to='/blog'>Blog</Link>
               <p className='header-name'>
                 {
 
@@ -58,7 +58,7 @@ const Header = () => {
 
 
               {user?.photoURL ?
-            <Image style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image> : <FaUser></FaUser>
+            <Image title={user?.displayName} style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image> : <FaUser></FaUser>
             
             }
           </Nav>

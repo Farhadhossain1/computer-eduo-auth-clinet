@@ -4,7 +4,7 @@ import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import './LogIn.css';
 
@@ -67,6 +67,7 @@ const LogIn = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
+          <p>Already have an account ? <Link to='/register'>Please Register</Link></p>
         </Form.Group>
         <Button className='form-btn' variant="primary" type="submit">
           LogIn
