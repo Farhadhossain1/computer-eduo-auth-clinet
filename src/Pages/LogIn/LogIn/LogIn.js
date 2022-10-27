@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import './LogIn.css';
 
@@ -15,6 +15,8 @@ const LogIn = () => {
   const {providerLogin ,signIn, githubLogin} = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const googleProvider = new GoogleAuthProvider()
   
@@ -48,7 +50,7 @@ const LogIn = () => {
           console.log(user);
           form.reset();
           setError('');
-          navigate('/')
+          navigate(from, {replace: true})
         })
         .catch(error =>{
           console.error(error)
