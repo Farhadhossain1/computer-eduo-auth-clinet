@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import './Register.css';
-
 
 
 
@@ -25,8 +25,10 @@ const [error, setError] = useState('');
       const user = result.user;
       console.log(user);
       setError('');
+      toast.success('Successfully Login!')
       form.reset();
       handleProfileUpdate(name, photoURL);
+
     })
   .catch(error =>{
     console.error(error)
@@ -55,11 +57,11 @@ const [error, setError] = useState('');
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label  className='form-text'>Email address</Form.Label>
-        <Form.Control name='email' type="email" placeholder="Enter email" />
+        <Form.Control name='email' type="email" placeholder="Enter email" required />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label  className='form-text'>Password</Form.Label>
-        <Form.Control name='password' type="password" placeholder="Password" />
+        <Form.Control name='password' type="password" placeholder="Password" required />
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Check type="checkbox" label="Check me out" />

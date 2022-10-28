@@ -32,7 +32,7 @@ const Header = () => {
 
     return (
         <Navbar className='navbar' bg="dark" expand="lg">
-      <Container>
+      <Container className='w-100'>
         <Navbar.Brand className='website-name' href="#home">
           <Image className='logo-img' src={logo}>
             

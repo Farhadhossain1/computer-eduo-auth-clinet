@@ -7,7 +7,7 @@ const Card = () => {
     const courses = useLoaderData()
     return (
         <div>
-            <h1>It is card Components : {courses.length}</h1>
+            <h2 className='text-center my-3'>Check Our Courses !!</h2>
                <div className='card-container'>
                {
                     courses.map(course =><CourseCard key={course._id} course={course}></CourseCard>)

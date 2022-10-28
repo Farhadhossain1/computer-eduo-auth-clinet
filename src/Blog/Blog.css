@@ -15,3 +15,9 @@
 .question {
   padding: 10px;
 }
+
+@media screen and (max-width: 576px) {
+  .blog {
+    padding: 20px;
+  }
+}

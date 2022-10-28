@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
@@ -48,6 +49,7 @@ const LogIn = () => {
         .then( result => {
           const user = result.user;
           console.log(user);
+          toast.success('Successfully toasted!')
           form.reset();
           setError('');
           navigate(from, {replace: true})
@@ -66,11 +68,11 @@ const LogIn = () => {
          <Form onSubmit={handdleSubmit} className='form-container'>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className='form-text'>Email address</Form.Label>
-          <Form.Control name='email' type="email" placeholder="Enter email" />
+          <Form.Control name='email' type="email" placeholder="Enter email" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control name='password' type="password" placeholder="Password" />
+          <Form.Control name='password' type="password" placeholder="Password"  required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
