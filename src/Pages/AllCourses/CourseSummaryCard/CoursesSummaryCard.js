@@ -1,3 +1,4 @@
+import jsPDF from 'jspdf';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -8,12 +9,22 @@ import './CoursesSummaryCard.css';
 
 const CoursesSummaryCard = ({courseCard}) => {
     const {title, details,_id,image_url,rating } = courseCard;
+
+
+    const pdfGenerate = () => {
+        let doc = new jsPDF("landscape", "px", "a4", "true");
+        doc.text(200, 170, title);
+        doc.text(10, 190, details);
+        doc.save("Hex Clan pdf file");
+      };
+  
+
     return (
         <div>
             <Card className='mb-5' >
                 <Card.Header>
                     <div className='card-header'>
-                    All courses Information
+                    <button onClick={pdfGenerate} className='btn btn-primary'>Download PDF</button>
                     </div>
                     </Card.Header>
       <Card.Body>
