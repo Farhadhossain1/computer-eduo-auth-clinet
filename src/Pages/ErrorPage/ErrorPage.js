@@ -8,7 +8,7 @@ const ErrorPage = () => {
             <div>
             <h1>Sorry !!!</h1>
             <p>Page Can not Found !!</p>
-            <Link to='/'>Go To Home Page</Link>
+            <Link to='/'><button>Go To Home Page</button></Link>
             </div>
         </div>
     );

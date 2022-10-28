@@ -4,7 +4,7 @@ import './CourseCard.css';
 
 const CourseCard = ({course}) => {
     console.log(course)
-    const {title, details,_id,image_url,rating, category_id
+    const {title, details,image_url , category_id
     } = course;
     return (
         <div  className='course-card text-decoration-none'>

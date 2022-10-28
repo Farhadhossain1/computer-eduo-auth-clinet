@@ -72,7 +72,7 @@ const Header = () => {
                   dark ? <div className='d-flex align-items-center mb-1'><FaMoon className='text-white mb-2 '></FaMoon></div> :  <div className=' d-flex align-items-center mb-2'><HiSun className='text-white'></HiSun></div>
                 }
               {user?.photoURL ?
-            <Image title={user?.displayName} style={{height: '40px'}} roundedCircle src={user?.photoURL}></Image> : <div className='d-flex align-items-center mb-2 ms-4'><FaUser className='text-white'></FaUser></div>
+            <Image title={user?.displayName} style={{width: '40px'}} roundedCircle src={user?.photoURL}></Image> : <div className='d-flex align-items-center mb-2 ms-4'><FaUser className='text-white'></FaUser></div>
             
             }
           </Nav>

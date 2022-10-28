@@ -1,5 +1,6 @@
 .blog {
   padding: 50px 120px;
+  background-image: linear-gradient(to bottom right, #83e3c6, #9198e5);
 }
 .text {
   font-size: 20px;

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import './Home.css';
 
 const Home = () => {
     return (
-        <Container>
+            <div className='home'>
+                <Container>
             <Row>
-                <Col lg='6'>
+                <Col lg='6' className='about-home'>
                     <div>
-                    <h1>Welcome Our Programming School !!!</h1>
+                           
                     </div>
                 </Col>
                 <Col>
@@ -17,6 +19,7 @@ const Home = () => {
                 </Col>
             </Row>
         </Container>
+            </div>
     );
 };
 

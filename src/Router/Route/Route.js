@@ -43,22 +43,22 @@ export const routes = createBrowserRouter([
         {
             path:'/courses',
             element: <Card></Card>,
-            loader: () => fetch('http://localhost:5000/coursesNews')
+            loader: () => fetch('https://computer-eduo-auth-server.vercel.app/coursesNews')
         },
         {
             path: '/courses/:id',
             element: <CoursesCategoris></CoursesCategoris>,
-            loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+            loader: ({params}) => fetch(`https://computer-eduo-auth-server.vercel.app/course/${params.id}`)
         },
         {
             path: '/coursesNews/:id',
             element: <CoursesSummaryCard></CoursesSummaryCard>,
-            loader: ({params}) => fetch(`http://localhost:5000/coursesNews/${params.id}`)
+            loader: ({params}) => fetch(`https://computer-eduo-auth-server.vercel.app/coursesNews/${params.id}`)
         },
         {
             path: '/courses/checkout/:id',
             element: <PrivateRoute> <Checkout></Checkout></PrivateRoute>,
-            loader: ({params})=> fetch(`http://localhost:5000/courses/checkout/${params.id}`)
+            loader: ({params})=> fetch(`https://computer-eduo-auth-server.vercel.app/courses/checkout/${params.id}`)
         }
        
     ]

@@ -62,7 +62,7 @@ const LogIn = () => {
 
 
     return (
-       <div>
+       <div className='login-container'>
          <Form onSubmit={handdleSubmit} className='form-container'>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className='form-text'>Email address</Form.Label>

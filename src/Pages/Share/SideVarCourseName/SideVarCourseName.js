@@ -8,7 +8,7 @@ const SideVarCourseName = () => {
 const [coursesInfo,setCoursesInfo] = useState([]);    
 
 useEffect( () =>{
-    fetch('http://localhost:5000/all-curseName')
+    fetch('https://computer-eduo-auth-server.vercel.app/all-curseName')
     .then(res => res.json())
     .then(data =>setCoursesInfo(data))
 } , [])

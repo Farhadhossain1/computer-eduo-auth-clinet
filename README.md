@@ -1,6 +1,6 @@
 # Project Name: Hex Clan
 
-# Live-Site-Link:
+# Live-Site-Link: https://computer-eduo-auth.web.app
 
 # Added Features:
 

@@ -18,3 +18,9 @@
   font-weight: 600;
   color: black;
 }
+
+@media screen and (max-width: 576px) {
+  .form-container {
+    width: 100%;
+  }
+}

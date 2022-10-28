@@ -5,5 +5,12 @@
   bottom: 0;
   right: 0;
   margin: auto;
-  color: red;
+  color: tomato;
+}
+.error a button {
+  border: none;
+  background: tomato;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px 50px;
 }
